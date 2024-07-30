@@ -1,13 +1,9 @@
-using Catalog.Application.Handlers;
-using Catalog.Application.Queries;
-using Catalog.Application.Responses;
+using Catalog.Application.Extentions;
 using Catalog.Core.Repositories;
-using Catalog.Core.Specs;
 using Catalog.Infrastructure.Data;
 using Catalog.Infrastructure.Repositories;
 using Common.Logging;
 using Common.Logging.Correlation;
-using MediatR;
 using Serilog;
 using System.Reflection;
 
@@ -36,12 +32,12 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(assemblies);
 });
 
+builder.Services.AddServicesFromCatalogApplication();
 builder.Services.AddScoped<ICorrelationIdGenerator, CorrelationIdGenerator>();
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IBrandRepository, ProductRepository>();
 builder.Services.AddScoped<ITypesRepository, ProductRepository>();
-builder.Services.AddTransient<IRequestHandler<GetAllProductsQuery, Pagination<ProductResponse>>, GetAllProductsHandler>();
 
 builder.Services.AddControllers();
 
