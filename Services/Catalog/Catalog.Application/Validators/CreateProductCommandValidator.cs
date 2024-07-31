@@ -9,10 +9,7 @@ namespace Catalog.Application.Validators
         {
             RuleFor(o => o.Name)
             .NotEmpty()
-            .WithMessage("{PropertyName} is required")
-            .NotNull()
-            .MaximumLength(100)
-            .WithMessage("{PropertyName} must not exceed 100 characters");
+            .MaximumLength(100);
 
             RuleFor(o => o.Summary)
             .NotEmpty()
