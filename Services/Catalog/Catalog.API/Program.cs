@@ -5,7 +5,6 @@ using Catalog.Infrastructure.Repositories;
 using Common.Logging;
 using Common.Logging.Correlation;
 using Serilog;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,17 +20,6 @@ builder.Services.Configure<CatalogContext>(
     builder.Configuration.GetSection("DatabaseSettings"));
 
 // DI
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddMediatR(cfg =>
-{
-    cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-
-    var assemblies = AppDomain.CurrentDomain.GetAssemblies()
-        .Where(a => a.FullName.StartsWith("Catalog.Application.Handlers"))
-        .ToArray();
-    cfg.RegisterServicesFromAssemblies(assemblies);
-});
-
 builder.Services.AddServicesFromCatalogApplication();
 builder.Services.AddScoped<ICorrelationIdGenerator, CorrelationIdGenerator>();
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
@@ -39,7 +27,10 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IBrandRepository, ProductRepository>();
 builder.Services.AddScoped<ITypesRepository, ProductRepository>();
 
-builder.Services.AddControllers().AddFluentValidationFromCatalogApplication();
+//builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+//builder.Services.AddProblemDetails();
+
+builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -48,6 +39,9 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+// add the built-in exception middleware to the pipeline.
+app.UseExceptionHandler();
 
 app.UseSwagger();
 app.UseSwaggerUI();
