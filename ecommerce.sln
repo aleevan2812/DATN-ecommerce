@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Application", "Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Infrastructure", "Services\Basket\Basket.Infrastructure\Basket.Infrastructure.csproj", "{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "Infrastructure\EventBus.Messages\EventBus.Messages.csproj", "{A946D20F-B8CD-4F23-B149-A2625C4A97A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A946D20F-B8CD-4F23-B149-A2625C4A97A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A946D20F-B8CD-4F23-B149-A2625C4A97A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A946D20F-B8CD-4F23-B149-A2625C4A97A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A946D20F-B8CD-4F23-B149-A2625C4A97A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{5C421AC0-C385-4A4E-86C2-800596E180D0} = {6DA8F9BB-E888-4C66-93E2-006C518AE69E}
 		{350DCA7C-E620-4C0E-8425-265607C7F84B} = {6DA8F9BB-E888-4C66-93E2-006C518AE69E}
 		{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B} = {6DA8F9BB-E888-4C66-93E2-006C518AE69E}
+		{A946D20F-B8CD-4F23-B149-A2625C4A97A2} = {0E7A6357-B8D8-4AC5-99BD-C0A4F17F00DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9322922B-3E30-4095-B0C3-7F0F417D97F4}
