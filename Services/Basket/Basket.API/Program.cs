@@ -3,9 +3,14 @@ using Basket.Application.GrpcService;
 using Basket.Core.IRepositories;
 using Basket.Infrastructure.Extentions;
 using Basket.Infrastructure.Reposotories;
+using Common.Logging;
 using Common.Logging.Correlation;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add serilog
+builder.Host.UseSerilog(Logging.ConfigureLogger);
 
 // Add services to the container.
 

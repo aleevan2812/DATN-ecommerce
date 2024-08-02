@@ -31,17 +31,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Application", "Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Infrastructure", "Services\Basket\Basket.Infrastructure\Basket.Infrastructure.csproj", "{2D6FD5F7-8DA7-4421-BF1F-9299C3C3D93B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "Infrastructure\EventBus.Messages\EventBus.Messages.csproj", "{A946D20F-B8CD-4F23-B149-A2625C4A97A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "Infrastructure\EventBus.Messages\EventBus.Messages.csproj", "{A946D20F-B8CD-4F23-B149-A2625C4A97A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{493F37B1-F7BB-4F4B-8ECD-7DB59D9CA5C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.API", "Services\Discount\Discount.API\Discount.API.csproj", "{5CE7877D-0CA3-406E-AFE4-FCBDD6049771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.API", "Services\Discount\Discount.API\Discount.API.csproj", "{5CE7877D-0CA3-406E-AFE4-FCBDD6049771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.Core", "Services\Discount\Discount.Core\Discount.Core.csproj", "{48233620-464B-4C5C-93DE-BE7E8650B68E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Core", "Services\Discount\Discount.Core\Discount.Core.csproj", "{48233620-464B-4C5C-93DE-BE7E8650B68E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.Infrastructure", "Services\Discount\Discount.Infrastructure\Discount.Infrastructure.csproj", "{E204F8E0-0B97-4655-94DA-124A0B5DCBA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Infrastructure", "Services\Discount\Discount.Infrastructure\Discount.Infrastructure.csproj", "{E204F8E0-0B97-4655-94DA-124A0B5DCBA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.Application", "Services\Discount\Discount.Application\Discount.Application.csproj", "{6D9B4964-8AEE-4C31-89AF-29703F2A6735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Application", "Services\Discount\Discount.Application\Discount.Application.csproj", "{6D9B4964-8AEE-4C31-89AF-29703F2A6735}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{27DCDE81-8D23-49DE-B3BF-05EB6AEA8FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,7 @@ Global
 		{48233620-464B-4C5C-93DE-BE7E8650B68E} = {493F37B1-F7BB-4F4B-8ECD-7DB59D9CA5C6}
 		{E204F8E0-0B97-4655-94DA-124A0B5DCBA0} = {493F37B1-F7BB-4F4B-8ECD-7DB59D9CA5C6}
 		{6D9B4964-8AEE-4C31-89AF-29703F2A6735} = {493F37B1-F7BB-4F4B-8ECD-7DB59D9CA5C6}
+		{27DCDE81-8D23-49DE-B3BF-05EB6AEA8FA7} = {86165C44-E3AC-4D1D-95CE-18FD885D9F80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9322922B-3E30-4095-B0C3-7F0F417D97F4}
