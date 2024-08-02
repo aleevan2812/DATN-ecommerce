@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.65.0" />
     <PackageReference Include="MediatR" Version="12.4.0" />
   </ItemGroup>
 
@@ -19,5 +21,10 @@
   <ItemGroup>
     <Folder Include="Handlers\" />
   </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\discount.proto" GrpcServices="Client">
+		</Protobuf>
+	</ItemGroup>
 
 </Project>

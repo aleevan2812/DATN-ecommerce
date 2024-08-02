@@ -1,3 +1,4 @@
+using Basket.Application.Extentions;
 using Basket.Infrastructure.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,11 @@ builder.Services.AddControllers();
 
 // add Redis settings
 builder.Services.AddServicesFromBasketInfrastructure(builder.Configuration);
+
+// Add external services
+builder.Services.AddServicesFromBasketApplication(builder.Configuration);
+
+// DI
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
