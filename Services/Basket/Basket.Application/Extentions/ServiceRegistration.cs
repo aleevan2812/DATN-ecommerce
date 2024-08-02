@@ -9,8 +9,8 @@ public static class ServiceRegistration
 {
     public static IServiceCollection AddServicesFromBasketApplication(this IServiceCollection services, IConfiguration config)
     {
-        services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
-            (o => o.Address = new Uri(config.GetSection("GrpcSettings:DiscountUrl").Value));
+        // c1
+        services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o => o.Address = new Uri(config.GetSection("GrpcSettings:DiscountUrl").Value.ToString()));
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

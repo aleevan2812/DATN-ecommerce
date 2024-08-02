@@ -1,5 +1,9 @@
 using Basket.Application.Extentions;
+using Basket.Application.GrpcService;
+using Basket.Core.IRepositories;
 using Basket.Infrastructure.Extentions;
+using Basket.Infrastructure.Reposotories;
+using Common.Logging.Correlation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +18,9 @@ builder.Services.AddServicesFromBasketInfrastructure(builder.Configuration);
 builder.Services.AddServicesFromBasketApplication(builder.Configuration);
 
 // DI
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<ICorrelationIdGenerator, CorrelationIdGenerator>();
+builder.Services.AddScoped<DiscountGrpcService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
