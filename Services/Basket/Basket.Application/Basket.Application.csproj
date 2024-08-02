@@ -18,10 +18,6 @@
     <ProjectReference Include="..\Basket.Core\Basket.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<Protobuf Include="Protos\discount.proto" GrpcServices="Client">
 		</Protobuf>
