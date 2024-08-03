@@ -6,9 +6,8 @@ namespace Ordering.Infrastructure.Data;
 
 public class OrderContext : DbContext
 {
-    public OrderContext(DbContextOptions<OrderContext>options):base(options)
+    public OrderContext(DbContextOptions<OrderContext> options) : base(options)
     {
-        
     }
 
     public DbSet<Order> Orders { get; set; }
@@ -23,6 +22,7 @@ public class OrderContext : DbContext
                     entry.Entity.CreatedDate = DateTime.Now;
                     entry.Entity.CreatedBy = "rahul"; //TODO: This will be replaced Identity Server
                     break;
+
                 case EntityState.Modified:
                     entry.Entity.LastModifiedDate = DateTime.Now;
                     entry.Entity.LastModifiedBy = "rahul"; //TODO: This will be replaced Identity Server
