@@ -5,7 +5,7 @@ namespace Catalog.Application.Exceptions;
 public class ProductNotFoundException : BaseException
 {
     public ProductNotFoundException(string id)
-        : base($"product with id {id} not found", HttpStatusCode.NotFound)
+        : base($"Product with id {id} not found", HttpStatusCode.NotFound)
     {
     }
 }

@@ -19,22 +19,43 @@ public class GlobalExceptionHandler : IExceptionHandler
         var problemDetails = new ProblemDetails();
         problemDetails.Instance = httpContext.Request.Path;
 
-        if (exception is FluentValidation.ValidationException fluentException)
+        switch (exception)
         {
-            problemDetails.Title = "one or more validation errors occurred - Global Exception Handler.";
-            problemDetails.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
-            httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            List<string> validationErrors = new List<string>();
-            foreach (var error in fluentException.Errors)
-            {
-                validationErrors.Add(error.ErrorMessage);
-            }
-            problemDetails.Extensions.Add("errors", validationErrors);
+            case FluentValidation.ValidationException fluentException:
+                problemDetails.Title = "one or more validation errors occurred - Global Exception Handler.";
+                problemDetails.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
+                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                var validationErrors = fluentException.Errors.Select(error => error.ErrorMessage).ToList();
+                problemDetails.Extensions.Add("errors", validationErrors);
+                break;
+
+            case ProductNotFoundException notFoundException:
+                problemDetails.Title = exception.Message;
+                problemDetails.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
+                httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+                break;
+
+            default:
+                problemDetails.Title = exception.Message;
+                break;
         }
-        else
-        {
-            problemDetails.Title = exception.Message;
-        }
+
+        //if (exception is FluentValidation.ValidationException fluentException)
+        //{
+        //    problemDetails.Title = "one or more validation errors occurred - Global Exception Handler.";
+        //    problemDetails.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
+        //    httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+        //    List<string> validationErrors = new List<string>();
+        //    foreach (var error in fluentException.Errors)
+        //    {
+        //        validationErrors.Add(error.ErrorMessage);
+        //    }
+        //    problemDetails.Extensions.Add("errors", validationErrors);
+        //}
+        //else
+        //{
+        //    problemDetails.Title = exception.Message;
+        //}
 
         _logger.LogError("{ProblemDetailsTitle}", problemDetails.Title);
 
