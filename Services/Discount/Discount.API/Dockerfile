@@ -16,10 +16,10 @@ COPY ["Services/Discount/Discount.Infrastructure/Discount.Infrastructure.csproj"
 RUN dotnet restore "./Services/Discount/Discount.API/Discount.API.csproj"
 COPY . .
 WORKDIR "/src/Services/Discount/Discount.API"
-RUN dotnet build "Discount.API.csproj" -c Release -o /app/build
+RUN dotnet build "./Discount.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Discount.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "./Discount.API.csproj" -c Release -o /app/publish 
 
 FROM base AS final
 WORKDIR /app

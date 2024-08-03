@@ -1,5 +1,7 @@
 using Common.Logging;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Ordering.API.EventBusConsumer;
 using Ordering.Application.Extentions;
 using Ordering.Infrastructure.Data;
 using Ordering.Infrastructure.Extensions;
@@ -19,6 +21,23 @@ builder.Services.AddInfraServices(builder.Configuration);
 
 // add Application services
 builder.Services.AddDiscountApplicationServices();
+
+// masstransit
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumersFromNamespaceContaining<BasketOrderingConsumer>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RabbitMq:Host"], "/", host =>
+        {
+            host.Username(builder.Configuration.GetValue("RabbitMq:Username", "guest"));
+            host.Password(builder.Configuration.GetValue("RabbitMq:Password", "guest"));
+        });
+
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
