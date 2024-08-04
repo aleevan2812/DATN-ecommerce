@@ -1,3 +1,4 @@
+using Catalog.Application.Exceptions;
 using Catalog.Application.Mappers;
 using Catalog.Application.Queries;
 using Catalog.Application.Responses;
@@ -18,6 +19,10 @@ public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, P
     public async Task<ProductResponse> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
     {
         var product = await _productRepository.GetProduct(request.Id);
+
+        if (product == null)
+            throw new ProductNotFoundException(request.Id);
+
         var productResponse = ProductMapper.Mapper.Map<ProductResponse>(product);
         return productResponse;
     }

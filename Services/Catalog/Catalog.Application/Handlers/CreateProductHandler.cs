@@ -24,6 +24,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
             throw new ApplicationException("There is an issue with mapping while creating new product");
         }
 
+        productEntity.Id = Guid.NewGuid().ToString();
         var newProduct = await _productRepository.CreateProduct(productEntity);
         var productResponse = ProductMapper.Mapper.Map<ProductResponse>(newProduct);
         return productResponse;
