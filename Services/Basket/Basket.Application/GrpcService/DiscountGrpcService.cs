@@ -17,7 +17,7 @@ public class DiscountGrpcService
         _config = config;
     }
 
-    public async Task<CouponModel> GetDiscount(string productName)
+    public async Task<CouponModel> GetDiscount(string productId)
     {
         _logger.LogInformation("Calling GRPC Service from Basket Client.");
 
@@ -25,7 +25,7 @@ public class DiscountGrpcService
         //var channel = GrpcChannel.ForAddress((_config.GetSection("GrpcSettings:DiscountUrl").Value).ToString());
         //var client = new DiscountProtoService.DiscountProtoServiceClient(channel);
 
-        var discountRequest = new GetDiscountRequest { ProductName = productName };
+        var discountRequest = new GetDiscountRequest { ProductId = productId };
         try
         {
             // c2

@@ -24,8 +24,8 @@ public class CreateShoppingCartCommandHandler : IRequestHandler<CreateShoppingCa
     {
         foreach (var item in request.Items)
         {
-            var coupon = await _discountGrpcService.GetDiscount(item.ProductName);
-            if (coupon != null)
+            var coupon = await _discountGrpcService.GetDiscount(item.ProductId);
+            if (coupon != null && coupon.Quantity > 0)
                 item.Price -= coupon.Amount;
         }
         var shoppingCart = await _basketRepository.UpdateBasket(new ShoppingCart

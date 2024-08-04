@@ -17,11 +17,11 @@ public class GetDiscountQueryHandler : IRequestHandler<GetDiscountQuery, CouponM
 
     public async Task<CouponModel> Handle(GetDiscountQuery request, CancellationToken cancellationToken)
     {
-        var coupon = await _discountRepository.GetDiscount(request.ProductName);
+        var coupon = await _discountRepository.GetDiscount(request.ProductId);
         if (coupon == null)
         {
             throw new RpcException(new Status(StatusCode.NotFound,
-                $"Discount with the product name = {request.ProductName} not found"));
+                $"Discount with the product Id = {request.ProductId} not found"));
         }
         //TODO: Exercise Follow Product Mapper kind of example
         var couponModel = new CouponModel
@@ -29,7 +29,8 @@ public class GetDiscountQueryHandler : IRequestHandler<GetDiscountQuery, CouponM
             Id = coupon.Id,
             Amount = coupon.Amount,
             Description = coupon.Description,
-            ProductName = coupon.ProductName
+            ProductId = coupon.ProductId,
+            Quantity = coupon.Quantity
         };
         return couponModel;
     }

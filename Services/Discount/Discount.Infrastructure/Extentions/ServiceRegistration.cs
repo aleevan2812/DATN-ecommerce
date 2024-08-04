@@ -34,15 +34,16 @@ public static class ServiceRegistration
         cmd.CommandText = "DROP TABLE IF EXISTS Coupon";
         cmd.ExecuteNonQuery();
         cmd.CommandText = @"CREATE TABLE Coupon(Id SERIAL PRIMARY KEY,
-                                                ProductName VARCHAR(500) NOT NULL,
+                                                ProductId VARCHAR(500) NOT NULL,
                                                 Description TEXT,
-                                                Amount INT)";
+                                                Amount INT,
+                                                Quantity INT)";
         cmd.ExecuteNonQuery();
 
-        cmd.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('Adidas Quick Force Indoor Badminton Shoes', 'Shoe Discount', 500);";
+        cmd.CommandText = "INSERT INTO Coupon(ProductId, Description, Amount, Quantity) VALUES('e51f9686-1c41-48cb-89ca-d96d78823f74', 'Shoe Discount : e51f9686-1c41-48cb-89ca-d96d78823f74', 500, 3);";
         cmd.ExecuteNonQuery();
 
-        cmd.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('Yonex VCORE Pro 100 A Tennis Racquet (270gm, Strung)', 'Racquet Discount', 700);";
+        cmd.CommandText = "INSERT INTO Coupon(ProductId, Description, Amount, Quantity) VALUES('7a6d77c5-75d8-473b-8d1d-664515cc7ceb', 'Racquet Discount : 7a6d77c5-75d8-473b-8d1d-664515cc7ceb', 700, 1);";
         cmd.ExecuteNonQuery();
     }
 }
