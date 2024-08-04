@@ -21,7 +21,6 @@ public class CatalogContextSeed
             {
                 foreach (var item in products)
                 {
-                    item.Id = Guid.NewGuid().ToString();
                     productCollection.InsertOneAsync(item);
                 }
             }
