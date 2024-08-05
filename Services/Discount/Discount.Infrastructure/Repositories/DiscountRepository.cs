@@ -31,7 +31,7 @@ public class DiscountRepository : IDiscountRepository
 
         var affected =
             await connection.ExecuteAsync
-            ("INSERT INTO Coupon (ProductId, Description, Amount) VALUES (@ProductId, @Description, @Amount)",
+            ("INSERT INTO Coupon (ProductId, Description, Amount, Quantity) VALUES (@ProductId, @Description, @Amount, @Quantity)",
                 new { ProductId = coupon.ProductId, Description = coupon.Description, Amount = coupon.Amount, Quantity = coupon.Quantity });
 
         if (affected == 0)
@@ -45,7 +45,7 @@ public class DiscountRepository : IDiscountRepository
         await using var connection = new NpgsqlConnection(_configuration.GetSection("DatabaseSettings:ConnectionString").Value);
 
         var affected = await connection.ExecuteAsync
-        ("UPDATE Coupon SET ProductId=@ProductId, Description = @Description, Amount = @Amount WHERE Id = @Id",
+        ("UPDATE Coupon SET ProductId=@ProductId, Description = @Description, Amount = @Amount, Quantity = @Quantity WHERE Id = @Id",
             new { ProductId = coupon.ProductId, Description = coupon.Description, Amount = coupon.Amount, Id = coupon.Id, Quantity = coupon.Quantity });
 
         if (affected == 0)

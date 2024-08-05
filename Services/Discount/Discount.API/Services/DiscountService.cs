@@ -13,12 +13,14 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
     private readonly ILogger<DiscountService> _logger;
     private readonly ICorrelationIdGenerator _correlationIdGenerator;
 
+
     public DiscountService(IMediator mediator, ILogger<DiscountService> logger, ICorrelationIdGenerator correlationIdGenerator)
     {
         _mediator = mediator;
         _logger = logger;
         _correlationIdGenerator = correlationIdGenerator;
         _logger.LogInformation("CorrelationId {correlationId}:", _correlationIdGenerator.Get());
+
     }
 
     public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
