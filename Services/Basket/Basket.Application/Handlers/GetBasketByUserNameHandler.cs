@@ -21,7 +21,8 @@ public class GetBasketByUserNameHandler : IRequestHandler<GetBasketByUserNameQue
     public async Task<ShoppingCartResponse> Handle(GetBasketByUserNameQuery request, CancellationToken cancellationToken)
     {
         var shoppingCart = await _basketRepository.GetBasket(request.UserName);
-        shoppingCart.TotalDiscount = 0;
+        if (shoppingCart != null)
+            shoppingCart.TotalDiscount = 0;
 
         var itemIds = shoppingCart?.Items.Select(u => u.ProductId).Distinct().ToList();
 
