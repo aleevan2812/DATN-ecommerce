@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "958d512c-5753-4418-850e-d3903d722537",
+		"name": "Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31120782"
+	},
+	"item": [
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "Get Products By Brand Name Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Catalog/GetProductsByBrandName/Adidas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9010/Catalog/GetAllProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9010",
+							"path": [
+								"Catalog",
+								"GetAllProducts"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Adidas",
+									"disabled": true
+								},
+								{
+									"key": "brandId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "typeId",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products using Https Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NDQ0NTgyODM4RkQ0MTAzNDQ0MTdDQzZFNTQwMTEwIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzcyMTk5MDYsImV4cCI6MTY3NzIyMzUwNiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJDYXRhbG9nIiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiQ2F0YWxvZ0FwaUNsaWVudCIsImp0aSI6IjUyNEE0Mzg0MzkwQTY0N0E0OTZBOUNEQUNCRkFCREEyIiwiaWF0IjoxNjc3MjE5OTA2LCJzY29wZSI6WyJjYXRhbG9nYXBpLnJlYWQiXX0.EEDsU275DF9YiRC5ubLQeIRPcKGYtqXPOFqCU4xxQzc5Q-4dweJm-B3RdgkadUyroWnEuUopYb5be2xBCutXPD60yFEvCYo19xZniVYlb7Uj5GDy9moh-bHQWWSo54IokqDMTBKbSN17-xpRcPmt160Me60BRjWjD3gLAnCuQnrnOZDG9oyCSop6XxVg-4JiGt0K6XFw6O6EFe-DhXpz_720dXZgpJP7Wh6Gu8zvyoLjP-bBnEqttgeDylMKbc1W93AZ9Da2q3rLHlFrUv96XOhkMONGEILqRA8KhJwR0UXp_MMfS3NbPL9EKAxEfYdQHReT1rozXu8-IxYjes7EPg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:9010/Catalog/GetAllProducts?sort=priceAsc&pageIndex=1&pageSize=10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "9010",
+							"path": [
+								"Catalog",
+								"GetAllProducts"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "priceAsc"
+								},
+								{
+									"key": "search",
+									"value": "Adidas",
+									"disabled": true
+								},
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "brandId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "typeId",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products Nginx Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://id-local.eshopping.com:44344/Catalog/GetAllProducts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Brands Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Catalog/GetAllBrands"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Types Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Catalog/GetAllTypes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Catalog/GetProductById/602d2149e773f2a3990b47f5"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket by UserName Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Basket/GetBasket/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by UserName Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9010/Order/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Basket Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NDQ0NTgyODM4RkQ0MTAzNDQ0MTdDQzZFNTQwMTEwIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzY1NDgxMTgsImV4cCI6MTY3NjU1MTcxOCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJCYXNrZXQiLCJFU2hvcHBpbmdHYXRld2F5IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiRVNob3BwaW5nR2F0ZXdheUNsaWVudCIsImp0aSI6IjcwNzNBNTM0NTY5NkJFRDM0RUFEOTNBMDE5NjdBMTZFIiwiaWF0IjoxNjc2NTQ4MTE4LCJzY29wZSI6WyJiYXNrZXRhcGkiLCJlc2hvcHBpbmdnYXRld2F5Il19.d-B5HczEUKCov476MVIL6E1KiNDXbNAxXxfC6otF_XZZOl2gMa6naB8zCBsLu7FPDqC8RDwYYHIExXjFLm3hvK5beGvV7Eybo6ALG2BkLVJa4FAlE6OAsjuNajxrTOdlu4pQEgPMyCxI2VqI1zxSKpv9gztbHKpLQy-B3EK9C6URhSkBVTAdjE4PAj1L_u0aymwGIonsynlNK2Q4tIMqjUT75gqJNfgfGETOP0PnHFuj6vIKkRJAJZCDy2SprMhaHIAvZEgcn48pHBp8UQ5Fk9-h5j0SgPThT0Ed3CLlkNuOJdL7GORiakY5sAsXXQgRysTPqp-WBHUuqlWNBnKKIg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n    \"items\": [\n        {\n            \"quantity\": 3,\n            \"imageFile\": \"images/products/adidas_shoe-1.png\",\n            \"price\": 3500.0,\n            \"productId\": \"602d2149e773f2a3990b47f5\",\n            \"productName\": \"Adidas Quick Force Indoor Badminton Shoes\"\n        }\n    ],\n    \"totalPrice\": 3500.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9010/Basket/CreateBasket"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE4NDQ0NTgyODM4RkQ0MTAzNDQ0MTdDQzZFNTQwMTEwIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzY1NDUwNTUsImV4cCI6MTY3NjU0ODY1NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJCYXNrZXQiLCJFU2hvcHBpbmdHYXRld2F5IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiRVNob3BwaW5nR2F0ZXdheUNsaWVudCIsImp0aSI6IkQzMzBFQzJCNDY1NUNCQkZBMDNBMUJBQ0JDOUNFNEFEIiwiaWF0IjoxNjc2NTQ1MDU1LCJzY29wZSI6WyJiYXNrZXRhcGkiLCJlc2hvcHBpbmdnYXRld2F5Il19.dW3ypLqA8j-0JsH7_IWTLlk1uVEFjr8RBCGNT-ykKxkl4988tgsIiMqJPJwA5ycwxL_nqamE5hxBIH7bjOlOu2YMlDVwqy7nThG8vlatMFUGiNa3tb8-bWFqly2M6qsuqTkkgCofgQQ0awesRy2rryHp1O8_p9E8mN-vXJLIUmqZO6k98v4Cm9DeC-t_IA3ga-z-rugnZkH2v0O4XlbYvvNZW7HbcbqXk2uCJQ2GP0Xi_HZM-j8aq1g9tU32j-ajp5thU5EIddrCBvrHItMDbtKhnFRmFDraz7e6Q46k-QPC3xIqjeo4wPiQ1ARmFCvAb1_eAPbxQcQmxai3CKMVWA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"items\": [\n    {\n      \"quantity\": 5,\n      \"color\": \"red\",\n      \"price\": 700,\n      \"productId\": \"602d2149e773f2a3990b47f5\",\n      \"productName\": \"IPhone X\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9010/Basket/GetBasket/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Basket Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"items\": [\n    {\n      \"quantity\": 5,\n      \"color\": \"red\",\n      \"price\": 700,\n      \"productId\": \"602d2149e773f2a3990b47f5\",\n      \"productName\": \"IPhone X\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9010/Basket/DeleteBasket/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout Basket Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 0,\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sahay\",\n  \"emailAddress\": \"rahulsahay@eshop.net\",\n  \"addressLine\": \"Bangalore\",\n  \"country\": \"India\",\n  \"state\": \"KA\",\n  \"zipCode\": \"560001\",\n  \"cardName\": \"Visa\",\n  \"cardNumber\": \"1234567890123456\",\n  \"expiration\": \"12/25\",\n  \"cvv\": \"123\",\n  \"paymentMethod\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9010/Basket/Checkout"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderByUserName",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9003/api/v1/Order/rahul"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket API",
+			"item": [
+				{
+					"name": "Post Basket Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"items\": [\n    {\n      \"quantity\": 2,\n      \"price\": 3500,\n      \"productId\": \"e51f9686-1c41-48cb-89ca-d96d78823f74\",\n      \"imageFile\": \"images/products/victor_shoe-2.png\",\n      \"productName\": \"Victor SHW503 F Badminton Shoes\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9001/api/v1/Basket/CreateBasket"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9001/api/v1/Basket/GetBasket/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout Basket Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 0,\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sahay\",\n  \"emailAddress\": \"rahulsahay@eshop.net\",\n  \"addressLine\": \"Bangalore\",\n  \"country\": \"India\",\n  \"state\": \"KA\",\n  \"zipCode\": \"560001\",\n  \"cardName\": \"Visa\",\n  \"cardNumber\": \"1234567890123456\",\n  \"expiration\": \"12/25\",\n  \"cvv\": \"123\",\n  \"paymentMethod\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9001/api/v1/Basket/Checkout"
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout Basket v2 Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9001/api/v2/Basket/Checkout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Identity Server",
+			"item": [
+				{
+					"name": "Discovery Document Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:9009/.well-known/openid-configuration"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "bob",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "postman",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "NotASecret",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://localhost:3778/connect/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Gateway Token Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://localhost:9009/connect/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Gateway Token Nginx Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "eshoppinggateway basketapi",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "EShoppingGatewayClient",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "5c7fd5c5-61a7-4668-ac57-2b4591ec26d2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://id-local.eshopping.com:44344/connect/token",
+							"protocol": "https",
+							"host": [
+								"id-local",
+								"eshopping",
+								"com"
+							],
+							"port": "44344",
+							"path": [
+								"connect",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "eshoppinggateway basketapi",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "EShoppingGatewayClient",
+									"disabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "5c7fd5c5-61a7-4668-ac57-2b4591ec26d2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket Token Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://localhost:9009/connect/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token 2nd Client Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://localhost:9009/connect/token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordering API",
+			"item": [
+				{
+					"name": "GetOrderByUserName Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9003/api/v1/Order/rahul"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrder Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 1900,\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sahay\",\n  \"emailAddress\": \"rahulsahay@eshop.net\",\n  \"addressLine\": \"Bangalore\",\n  \"country\": \"India\",\n  \"state\": \"Karnataka\",\n  \"zipCode\": \"560001\",\n  \"cardName\": \"Visa\",\n  \"cardNumber\": \"1234567890123456\",\n  \"expiration\": \"12/25\",\n  \"cvv\": \"123\",\n  \"paymentMethod\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9003/api/v1/Order"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrder - Gateway",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 1900,\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sahay\",\n  \"emailAddress\": \"rahulsahay@eshop.net\",\n  \"addressLine\": \"Bangalore\",\n  \"country\": \"India\",\n  \"state\": \"Karnataka\",\n  \"zipCode\": \"560001\",\n  \"cardName\": \"Visa\",\n  \"cardNumber\": \"1234567890123456\",\n  \"expiration\": \"12/25\",\n  \"cvv\": \"123\",\n  \"paymentMethod\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9003/api/v1/Order/"
+					},
+					"response": []
+				},
+				{
+					"name": "ModifyOrder Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"rahul\",\n  \"totalPrice\": 1900,\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sahay\",\n  \"emailAddress\": \"rahulsahay@eshop.net\",\n  \"addressLine\": \"Bangalore\",\n  \"country\": \"India\",\n  \"state\": \"Karnataka\",\n  \"zipCode\": \"560002\",\n  \"cardName\": \"Visa\",\n  \"cardNumber\": \"1234567890123456\",\n  \"expiration\": \"12/25\",\n  \"cvv\": \"123\",\n  \"paymentMethod\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9003/api/v1/Order/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:9003/api/v1/Order/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "Get All Products Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2RjI1QzdDNDJEMTBGRDJDNjcwRENGNDNCMTNEODc2IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzQ4OTY0OTUsImV4cCI6MTY3NDkwMDA5NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJDYXRhbG9nIiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiQ2F0YWxvZ0FwaUNsaWVudCIsImp0aSI6IjczQjMxMjBCMzZEMDJGQkVBMTREMzk3ODg5QkY5OTVCIiwiaWF0IjoxNjc0ODk2NDk1LCJzY29wZSI6WyJjYXRhbG9nYXBpIl19.fV-qq2MZFKP_45_mjr_LqquWKirGj5ERdFZV2_N4ckT3Dj06WTqOYdiPaOkHu-nCHdIdGcgEllJEuOrOzQZv4lfJY7zbXZtT7fuNiRFCSYTp2omK38DvIir7saK7BsY2tAk4K_bTxznRRvUcOevnU98EnAsXdtjko_bjDiwVjj6uDI7HD3fPB71AwDJ_Rhd1eoyKlWL-aMS5wIA8b-lEXCXlN3yc8KbhA3iRlCnjFkoCwYtzGiwESb_LRR77cLaWC2Ec0oyKSC-gjE932VBRhk_4a8yZIMCATn7A68bNRh_rgLhlEzDj08jZ-XnKqqbtprdck653BQd3ZL5Rob2VEw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:9000/api/v1/Catalog/GetAllProducts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Product By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2RjI1QzdDNDJEMTBGRDJDNjcwRENGNDNCMTNEODc2IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzQ4OTY0OTUsImV4cCI6MTY3NDkwMDA5NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJDYXRhbG9nIiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiQ2F0YWxvZ0FwaUNsaWVudCIsImp0aSI6IjczQjMxMjBCMzZEMDJGQkVBMTREMzk3ODg5QkY5OTVCIiwiaWF0IjoxNjc0ODk2NDk1LCJzY29wZSI6WyJjYXRhbG9nYXBpIl19.fV-qq2MZFKP_45_mjr_LqquWKirGj5ERdFZV2_N4ckT3Dj06WTqOYdiPaOkHu-nCHdIdGcgEllJEuOrOzQZv4lfJY7zbXZtT7fuNiRFCSYTp2omK38DvIir7saK7BsY2tAk4K_bTxznRRvUcOevnU98EnAsXdtjko_bjDiwVjj6uDI7HD3fPB71AwDJ_Rhd1eoyKlWL-aMS5wIA8b-lEXCXlN3yc8KbhA3iRlCnjFkoCwYtzGiwESb_LRR77cLaWC2Ec0oyKSC-gjE932VBRhk_4a8yZIMCATn7A68bNRh_rgLhlEzDj08jZ-XnKqqbtprdck653BQd3ZL5Rob2VEw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:9000/api/v1/Catalog/GetAllProducts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Product By Name",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2RjI1QzdDNDJEMTBGRDJDNjcwRENGNDNCMTNEODc2IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzQ4OTY0OTUsImV4cCI6MTY3NDkwMDA5NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOSIsImF1ZCI6WyJDYXRhbG9nIiwiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwOS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiQ2F0YWxvZ0FwaUNsaWVudCIsImp0aSI6IjczQjMxMjBCMzZEMDJGQkVBMTREMzk3ODg5QkY5OTVCIiwiaWF0IjoxNjc0ODk2NDk1LCJzY29wZSI6WyJjYXRhbG9nYXBpIl19.fV-qq2MZFKP_45_mjr_LqquWKirGj5ERdFZV2_N4ckT3Dj06WTqOYdiPaOkHu-nCHdIdGcgEllJEuOrOzQZv4lfJY7zbXZtT7fuNiRFCSYTp2omK38DvIir7saK7BsY2tAk4K_bTxznRRvUcOevnU98EnAsXdtjko_bjDiwVjj6uDI7HD3fPB71AwDJ_Rhd1eoyKlWL-aMS5wIA8b-lEXCXlN3yc8KbhA3iRlCnjFkoCwYtzGiwESb_LRR77cLaWC2Ec0oyKSC-gjE932VBRhk_4a8yZIMCATn7A68bNRh_rgLhlEzDj08jZ-XnKqqbtprdck653BQd3ZL5Rob2VEw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:9000/api/v1/Catalog/GetAllProducts/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
