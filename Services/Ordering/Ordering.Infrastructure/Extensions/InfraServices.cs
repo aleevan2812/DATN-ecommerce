@@ -16,6 +16,7 @@ public static class InfraServices
             configuration.GetConnectionString("OrderingConnectionString")));
         serviceCollection.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
         serviceCollection.AddScoped<IOrderRepository, OrderRepository>();
+        serviceCollection.AddScoped<IOrderItemRepository, OrderItemRepository>();
         return serviceCollection;
     }
 }

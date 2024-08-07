@@ -1,5 +1,4 @@
 using Ordering.Core.Common;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ordering.Core.Entities;
@@ -24,11 +23,8 @@ public class Order : EntityBase
     public IEnumerable<OrderItem>? Items { get; set; }
 }
 
-public class OrderItem
+public class OrderItem : EntityBase
 {
-    [Key]
-    public string? Id { get; set; } = Guid.NewGuid().ToString();
-
     public string? OrderId { get; set; }
 
     [ForeignKey("OrderId")]

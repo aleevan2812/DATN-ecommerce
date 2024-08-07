@@ -42,7 +42,7 @@ public class OrderController : ApiController
     [ProducesDefaultResponseType]
     public async Task<ActionResult> UpdateOrder([FromBody] UpdateOrderCommand command)
     {
-        var result = _mediator.Send(command);
+        var result = await _mediator.Send(command);
         return NoContent();
     }
 
@@ -50,7 +50,7 @@ public class OrderController : ApiController
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> DeleteOrder(int id)
+    public async Task<ActionResult> DeleteOrder(string id)
     {
         var cmd = new DeleteOrderCommand() { Id = id };
         await _mediator.Send(cmd);

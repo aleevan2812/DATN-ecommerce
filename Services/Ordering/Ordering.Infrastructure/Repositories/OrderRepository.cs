@@ -19,4 +19,11 @@ public class OrderRepository : RepositoryBase<Order>, IOrderRepository
             .ToListAsync();
         return orderList;
     }
+
+    public async Task<Order> GetByIdAsync(string id)
+    {
+        return await _dbContext.Orders
+        .Include(o => o.Items)
+        .FirstOrDefaultAsync(o => o.Id == id);
+    }
 }

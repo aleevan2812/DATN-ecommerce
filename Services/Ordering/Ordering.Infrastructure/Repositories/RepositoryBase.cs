@@ -39,7 +39,7 @@ public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
         return await query.ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> GetByIdAsync(string id)
     {
         return await _dbContext.Set<T>().FindAsync(id);
     }
