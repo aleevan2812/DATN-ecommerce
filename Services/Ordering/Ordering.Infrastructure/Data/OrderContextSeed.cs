@@ -22,23 +22,39 @@ public class OrderContextSeed
             new()
             {
                 UserName = "rahul",
-                FirstName = "Rahul",
-                LastName = "Sahay",
+                FullName = "Rahul",
+
                 EmailAddress = "rahulsahay@eshop.net",
                 AddressLine = "Bangalore",
                 Country = "India",
-                TotalPrice = 750,
+                TotalPrice = 200,
                 State = "KA",
                 ZipCode = "560001",
 
-                CardName = "Visa",
-                CardNumber = "1234567890123456",
-                CreatedBy = "Rahul",
-                Expiration = "12/25",
-                Cvv = "123",
+                Status = "Completed",
                 PaymentMethod = 1,
                 LastModifiedBy = "Rahul",
                 LastModifiedDate = new DateTime(),
+
+                Items = new List<OrderItem>()
+                {
+                    new OrderItem()
+                    {
+                        ProductId = "pro1",
+                        ProductName = "Pro 1",
+                        Quantity = 1,
+                        ImageUrl = "http://example.com/images/prod001.png",
+                        Price = 100
+                    },
+                    new OrderItem()
+                    {
+                        ProductId = "pro2",
+                        ProductName = "Pro 2",
+                        Quantity = 2,
+                        ImageUrl = "http://example.com/images/prod001.png",
+                        Price = 50
+                    }
+                }
             }
         };
     }

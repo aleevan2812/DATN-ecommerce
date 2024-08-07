@@ -7,7 +7,7 @@ public interface IAsyncRepository<T> where T : EntityBase
 {
     Task<IReadOnlyList<T>> GetAllAsync();
 
-    Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate);
+    Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null, Expression<Func<T, object>>? include = null);
 
     Task<T> GetByIdAsync(int id);
 

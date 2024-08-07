@@ -7,7 +7,7 @@ using Ordering.Core.IRepositories;
 
 namespace Ordering.Application.Handlers;
 
-public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand, int>
+public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand, string>
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand,
         _logger = logger;
     }
 
-    public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
     {
         var orderEntity = _mapper.Map<Order>(request);
         var generatedOrder = await _orderRepository.AddAsync(orderEntity);

@@ -2,22 +2,23 @@ using MediatR;
 
 namespace Ordering.Application.Commands;
 
-public class CheckoutOrderCommand : IRequest<int>
-{
-    public string? UserName { get; set; }
-    public decimal? TotalPrice { get; set; }
+public record CheckoutOrderCommand(
+    string? UserName,
+    decimal? TotalPrice,
+    string? FullName,
+    string? EmailAddress,
+    string? AddressLine,
+    string? Country,
+    string? State,
+    string? ZipCode,
+    int? PaymentMethod,
+    IEnumerable<CheckoutOrderItem> Items
+) : IRequest<string>;
 
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
-    public string? EmailAddress { get; set; }
-    public string? AddressLine { get; set; }
-    public string? Country { get; set; }
-    public string? State { get; set; }
-    public string? ZipCode { get; set; }
-
-    public string? CardName { get; set; }
-    public string? CardNumber { get; set; }
-    public string? Expiration { get; set; }
-    public string? CVV { get; set; }
-    public int? PaymentMethod { get; set; }
-}
+public record CheckoutOrderItem(
+    string? ProductId,
+    string? ProductName,
+    int? Quantity,
+    string? ImageUrl,
+    decimal? Price
+    );

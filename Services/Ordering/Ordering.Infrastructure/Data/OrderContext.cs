@@ -11,6 +11,7 @@ public class OrderContext : DbContext
     }
 
     public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> Items { get; set; }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {

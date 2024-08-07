@@ -20,9 +20,23 @@ public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
         return await _dbContext.Set<T>().ToListAsync();
     }
 
-    public async Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate)
+    public async Task<IReadOnlyList<T>> GetAllAsync(
+        Expression<Func<T, bool>>? predicate = null,
+        Expression<Func<T, object>>? include = null)
     {
-        return await _dbContext.Set<T>().Where(predicate).ToListAsync();
+        IQueryable<T> query = _dbContext.Set<T>();
+
+        if (include != null)
+        {
+            query = query.Include(include);
+        }
+
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<T> GetByIdAsync(int id)
