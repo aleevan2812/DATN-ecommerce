@@ -5,6 +5,7 @@ public class OrderResponse
     public string? Id { get; protected set; }
     public string? UserName { get; set; }
     public decimal? TotalPrice { get; set; }
+    public decimal? TotalDiscount { get; set; }
     public string? FullName { get; set; }
     public string? EmailAddress { get; set; }
     public string? AddressLine { get; set; }

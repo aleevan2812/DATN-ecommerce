@@ -11,4 +11,6 @@ public interface IDiscountRepository
     Task<bool> UpdateDiscount(Coupon coupon);
 
     Task<bool> DeleteDiscount(string productId);
+
+    Task<Coupon> GetDiscountById(int id);
 }

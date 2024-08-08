@@ -6,7 +6,8 @@ namespace Ordering.Core.Entities;
 public class Order : EntityBase
 {
     public string? UserName { get; set; }
-    public decimal? TotalPrice { get; set; }
+    public decimal? TotalPrice { get; set; } = 0;
+    public decimal? TotalDiscount { get; set; } = 0;
     public string? FullName { get; set; }
     public string? EmailAddress { get; set; }
     public string? AddressLine { get; set; }
@@ -33,6 +34,6 @@ public class OrderItem : EntityBase
     public string? ProductId { get; set; }
     public string? ProductName { get; set; }
     public string? ImageUrl { get; set; }
-    public int? Quantity { get; set; }
-    public decimal? Price { get; set; }
+    public int Quantity { get; set; }
+    public decimal Price { get; set; }
 }

@@ -20,7 +20,7 @@ builder.Host.UseSerilog(Logging.ConfigureLogger);
 builder.Services.AddInfraServices(builder.Configuration);
 
 // add Application services
-builder.Services.AddDiscountApplicationServices();
+builder.Services.AddOrderingApplicationServices(builder.Configuration);
 
 // masstransit
 builder.Services.AddMassTransit(x =>

@@ -3,8 +3,7 @@ using MediatR;
 namespace Ordering.Application.Commands;
 
 public record CheckoutOrderCommand(
-    string? UserName,
-    decimal? TotalPrice,
+    string UserName,
     string? FullName,
     string? EmailAddress,
     string? AddressLine,
@@ -16,9 +15,9 @@ public record CheckoutOrderCommand(
 ) : IRequest<string>;
 
 public record CheckoutOrderItem(
-    string? ProductId,
-    string? ProductName,
-    int? Quantity,
-    string? ImageUrl,
-    decimal? Price
+    string ProductId,
+    string ProductName,
+    int Quantity,
+    string ImageUrl,
+    decimal Price
     );

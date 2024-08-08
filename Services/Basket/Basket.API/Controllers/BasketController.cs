@@ -1,10 +1,8 @@
 using Basket.Application.Commands;
-using Basket.Application.Mappers;
 using Basket.Application.Queries;
 using Basket.Application.Responses;
 using Basket.Core.Entities;
 using Common.Logging.Correlation;
-using EventBus.Messages.Events;
 using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -70,18 +68,18 @@ public class BasketController : ApiController
             return BadRequest();
         }
 
-        // Publish to Order    
-        var eventMesg = BasketMapper.Mapper.Map<BasketCheckoutEvent>(basketCheckout);
-        eventMesg.TotalPrice = basket.TotalPrice;
-        eventMesg.CorrelationId = _correlationIdGenerator.Get();
-        await _publishEndpoint.Publish(eventMesg);
-        _logger.LogInformation("Published to Order service");
+        // Publish to Order
+        //var eventMesg = BasketMapper.Mapper.Map<BasketCheckoutEvent>(basketCheckout);
+        //eventMesg.TotalPrice = basket.TotalPrice;
+        //eventMesg.CorrelationId = _correlationIdGenerator.Get();
+        //await _publishEndpoint.Publish(eventMesg);
+        //_logger.LogInformation("Published to Order service");
 
         // Publish to Discount
-        var eventToDiscoutMesg = BasketMapper.Mapper.Map<ItemsBasketCheckoutEvent>(basket);
-        eventToDiscoutMesg.CorrelationId = _correlationIdGenerator.Get();
-        await _publishEndpoint.Publish(eventToDiscoutMesg);
-        _logger.LogInformation("Published to Discount service");
+        //var eventToDiscoutMesg = BasketMapper.Mapper.Map<ItemsBasketCheckoutEvent>(basket);
+        //eventToDiscoutMesg.CorrelationId = _correlationIdGenerator.Get();
+        //await _publishEndpoint.Publish(eventToDiscoutMesg);
+        //_logger.LogInformation("Published to Discount service");
 
         //remove the basket
         var deleteQuery = new DeleteBasketByUserNameQuery(basketCheckout.UserName);
