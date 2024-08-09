@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Commands;
 using Ordering.Application.Queries;
 using Ordering.Application.Responses;
+using Ordering.Core.Entities;
 using System.Net;
 
 namespace Ordering.API.Controllers;
@@ -18,11 +19,20 @@ public class OrderController : ApiController
         _logger = logger;
     }
 
-    [HttpGet("{userName}", Name = "GetOrdersByUserName")]
+    [HttpGet("GetOrdersByUserName")]
     [ProducesResponseType(typeof(IEnumerable<OrderResponse>), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<IEnumerable<OrderResponse>>> GetOrdersByUserName(string userName)
     {
         var query = new GetOrderListQuery(userName);
+        var orders = await _mediator.Send(query);
+        return Ok(orders);
+    }
+
+    [HttpGet("GetOrderById")]
+    [ProducesResponseType(typeof(IEnumerable<OrderResponse>), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult<OrderResponse>> GetOrderById(string id)
+    {
+        var query = new GetOrderByIdQuery(id);
         var orders = await _mediator.Send(query);
         return Ok(orders);
     }
@@ -55,5 +65,22 @@ public class OrderController : ApiController
         var cmd = new DeleteOrderCommand() { Id = id };
         await _mediator.Send(cmd);
         return NoContent();
+    }
+
+    // apply Stripe payment
+    [HttpPost("CreateStripeSession")]
+    public async Task<ActionResult<CreateStripeSessionCommand>> CreateStripeSession([FromBody] CreateStripeSessionCommand request)
+    {
+        var result = await _mediator.Send(request);
+
+        return Ok(result);
+    }
+
+    [HttpPost("ValidateStripeSession")]
+    public async Task<ActionResult<OrderDto>> ValidateStripeSession([FromBody] ValidateStripeSessionCommand request)
+    {
+        var result = await _mediator.Send(request);
+
+        return Ok(result);
     }
 }

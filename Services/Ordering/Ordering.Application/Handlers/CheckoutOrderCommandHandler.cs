@@ -28,6 +28,7 @@ public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand,
         var orderEntity = _mapper.Map<Order>(request);
 
         var itemIds = request?.Items.Select(u => u.ProductId).Distinct().ToList();
+        //var items = request?.Items.se
 
         decimal totalDiscount = 0;
         foreach (var itemId in itemIds)

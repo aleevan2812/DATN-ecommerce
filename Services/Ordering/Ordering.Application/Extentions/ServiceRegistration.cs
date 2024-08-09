@@ -24,6 +24,8 @@ public static class ServiceRegistration
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
+        Stripe.StripeConfiguration.ApiKey = config.GetSection("Stripe:SecretKey").Get<string>();
+
         return services;
     }
 }

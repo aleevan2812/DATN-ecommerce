@@ -38,16 +38,14 @@ public class OrderContextSeed
 
                 Items = new List<OrderItem>()
                 {
-                    new OrderItem()
-                    {
+                    new OrderItem() {
                         ProductId = "pro1",
                         ProductName = "Pro 1",
                         Quantity = 1,
                         ImageUrl = "http://example.com/images/prod001.png",
                         Price = 100
                     },
-                    new OrderItem()
-                    {
+                    new OrderItem() {
                         ProductId = "pro2",
                         ProductName = "Pro 2",
                         Quantity = 2,

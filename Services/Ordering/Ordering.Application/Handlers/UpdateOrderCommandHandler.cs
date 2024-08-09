@@ -2,7 +2,6 @@ using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Commands;
-using Ordering.Core.Entities;
 using Ordering.Core.IRepositories;
 
 namespace Ordering.Application.Handlers;
@@ -29,7 +28,13 @@ public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, Uni
         //    throw new OrderNotFoundException(nameof(Order), request.Id);
         //}
 
-        _mapper.Map(request, orderToUpdate, typeof(UpdateOrderCommand), typeof(Order));
+        orderToUpdate.FullName = request.FullName;
+        orderToUpdate.EmailAddress = request.EmailAddress;
+        orderToUpdate.AddressLine = request.AddressLine;
+        orderToUpdate.Country = request.Country;
+        orderToUpdate.State = request.State;
+        orderToUpdate.ZipCode = request.ZipCode;
+
         await _orderRepository.UpdateAsync(orderToUpdate);
         _logger.LogInformation($"Order {orderToUpdate.Id} is successfully updated");
 
