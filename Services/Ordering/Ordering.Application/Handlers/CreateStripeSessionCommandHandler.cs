@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Commands;
+using Ordering.Application.Exceptions;
 using Ordering.Core.IRepositories;
 using Stripe.Checkout;
 
@@ -31,6 +32,10 @@ public class CreateStripeSessionCommandHandler : IRequestHandler<CreateStripeSes
         };
 
         var order = await _orderRepository.GetByIdAsync(request.OrderId);
+        if (order is null)
+        {
+            throw new OrderNotFoundException(request.OrderId);
+        }
 
         //foreach (var item in order.Items)
         //{

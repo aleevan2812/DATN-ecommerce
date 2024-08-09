@@ -17,6 +17,7 @@ public record OrderDto
     decimal? TotalDiscount,
     string? FullName,
     string? EmailAddress,
+    string? PhoneNumber,
     string? AddressLine,
     string? Country,
     string? State,

@@ -46,6 +46,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// add the built-in exception middleware to the pipeline.
+app.UseExceptionHandler();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

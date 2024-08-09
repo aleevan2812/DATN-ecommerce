@@ -21,6 +21,7 @@ namespace Ordering.Infrastructure.Migrations
                     TotalDiscount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressLine = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: true),

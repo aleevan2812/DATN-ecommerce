@@ -2,6 +2,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Commands;
+using Ordering.Application.Exceptions;
 using Ordering.Application.GrpcService;
 using Ordering.Core.Entities;
 using Ordering.Core.IRepositories;
@@ -28,6 +29,8 @@ public class ValidateStripeSessionHandler : IRequestHandler<ValidateStripeSessio
     public async Task<OrderDto> Handle(ValidateStripeSessionCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.orderId);
+        if (order is null)
+            throw new OrderNotFoundException(request.orderId);
 
         var service = new SessionService();
         Session session = service.Get(order.StripeSessionId);

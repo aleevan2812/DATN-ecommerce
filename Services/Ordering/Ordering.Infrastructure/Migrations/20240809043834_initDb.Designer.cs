@@ -12,7 +12,7 @@ using Ordering.Infrastructure.Data;
 namespace Ordering.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20240807155212_initDb")]
+    [Migration("20240809043834_initDb")]
     partial class initDb
     {
         /// <inheritdoc />
@@ -59,6 +59,9 @@ namespace Ordering.Infrastructure.Migrations
 
                     b.Property<int?>("PaymentMethod")
                         .HasColumnType("int");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");

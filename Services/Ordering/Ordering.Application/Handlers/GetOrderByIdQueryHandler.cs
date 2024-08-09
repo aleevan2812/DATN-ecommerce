@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using Ordering.Application.Exceptions;
 using Ordering.Application.Queries;
 using Ordering.Application.Responses;
 using Ordering.Core.IRepositories;
@@ -20,6 +21,8 @@ public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, Order
     public async Task<OrderResponse> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.Id);
+        if (order is null)
+            throw new OrderNotFoundException(request.Id);
         return _mapper.Map<OrderResponse>(order);
     }
 }

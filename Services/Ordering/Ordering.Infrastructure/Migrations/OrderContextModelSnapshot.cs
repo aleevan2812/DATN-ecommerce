@@ -57,6 +57,9 @@ namespace Ordering.Infrastructure.Migrations
                     b.Property<int?>("PaymentMethod")
                         .HasColumnType("int");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 

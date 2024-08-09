@@ -6,6 +6,7 @@ public record CheckoutOrderCommand(
     string UserName,
     string? FullName,
     string? EmailAddress,
+    string? PhoneNumber,
     string? AddressLine,
     string? Country,
     string? State,

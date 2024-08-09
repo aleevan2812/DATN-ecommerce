@@ -10,6 +10,7 @@ public class Order : EntityBase
     public decimal? TotalDiscount { get; set; } = 0;
     public string? FullName { get; set; }
     public string? EmailAddress { get; set; }
+    public string? PhoneNumber { get; set; }
     public string? AddressLine { get; set; }
     public string? Country { get; set; }
     public string? State { get; set; }

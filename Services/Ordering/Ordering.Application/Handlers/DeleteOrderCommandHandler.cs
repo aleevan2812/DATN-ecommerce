@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Commands;
+using Ordering.Application.Exceptions;
 using Ordering.Core.IRepositories;
 
 namespace Ordering.Application.Handlers;
@@ -21,6 +22,8 @@ public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, Uni
     public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
     {
         var orderToDelete = await _orderRepository.GetByIdAsync(request.Id);
+        if (orderToDelete is null)
+            throw new OrderNotFoundException((request.Id));
 
         //if (orderToDelete == null)
         //{
