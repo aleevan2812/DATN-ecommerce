@@ -23,6 +23,7 @@ public class ProductDTO
     public double Price50 { get; set; }
 
     public double Price100 { get; set; }
+    public int StockQuantity { get; set; }
 
     public List<ProductImageDTO>? ProductImages { get; set; } = new List<ProductImageDTO>();
 }

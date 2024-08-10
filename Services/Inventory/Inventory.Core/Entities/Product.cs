@@ -23,6 +23,7 @@ public class Product
     public double? Price50 { get; set; }
 
     public double? Price100 { get; set; }
+    public int StockQuantity { get; set; }
 
     public Guid CategoryId { get; set; }
 
