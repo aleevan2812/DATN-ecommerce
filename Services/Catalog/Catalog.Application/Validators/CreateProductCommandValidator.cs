@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Catalog.Application.Validators
 {
-    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    public class CreateProductCommandValidator : AbstractValidator<CreateCategoryCommand>
     {
         public CreateProductCommandValidator()
         {

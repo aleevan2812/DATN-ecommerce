@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Catalog.Application.Handlers;
 
-public class CreateProductHandler : IRequestHandler<CreateProductCommand, ProductResponse>
+public class CreateProductHandler : IRequestHandler<CreateCategoryCommand, ProductResponse>
 {
     private readonly IProductRepository _productRepository;
 
@@ -16,7 +16,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
         _productRepository = productRepository;
     }
 
-    public async Task<ProductResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async Task<ProductResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
         var productEntity = ProductMapper.Mapper.Map<Product>(request);
         if (productEntity is null)

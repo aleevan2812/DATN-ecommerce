@@ -4,7 +4,6 @@ public interface IUnitOfWork
 {
     ICategoryRepository Category { get; }
     IProductRepository Product { get; }
-    IProductImageRepository ProductImage { get; }
 
-    Task SaveAsync();
+    Task<int> SaveAsync();
 }

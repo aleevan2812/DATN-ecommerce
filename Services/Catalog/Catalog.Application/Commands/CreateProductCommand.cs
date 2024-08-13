@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Catalog.Application.Commands;
 
-public class CreateProductCommand : IRequest<ProductResponse>
+public class CreateCategoryCommand : IRequest<ProductResponse>
 {
     public string Name { get; set; }
     public string Summary { get; set; }

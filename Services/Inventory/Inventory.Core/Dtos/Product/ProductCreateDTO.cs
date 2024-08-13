@@ -21,6 +21,7 @@ public class ProductCreateDTO
 
     public double? Price100 { get; set; }
     public int StockQuantity { get; set; }
+    public int SoldQuantity { get; set; } = 0;
 
     public Guid CategoryId { get; set; }
 

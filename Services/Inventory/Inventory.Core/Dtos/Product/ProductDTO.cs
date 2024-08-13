@@ -1,5 +1,3 @@
-using Inventory.Core.Dtos.ProductImage;
-
 namespace Inventory.Core.Dtos.Product;
 
 public class ProductDTO
@@ -16,14 +14,10 @@ public class ProductDTO
 
     public string? ISBN { get; set; }
 
-    public double ListPrice { get; set; }
-
     public double Price { get; set; }
-
-    public double Price50 { get; set; }
-
-    public double Price100 { get; set; }
     public int StockQuantity { get; set; }
+    public int SoldQuantity { get; set; }
 
-    public List<ProductImageDTO>? ProductImages { get; set; } = new List<ProductImageDTO>();
+    //public List<ProductImageDTO>? ProductImages { get; set; } = new List<ProductImageDTO>();
+    public List<string>? ImageUrls { get; set; } = new List<string>();
 }

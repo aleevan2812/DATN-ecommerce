@@ -16,14 +16,10 @@ public class Product
 
     public string ISBN { get; set; }
 
-    public double? ListPrice { get; set; }
-
     public double? Price { get; set; }
 
-    public double? Price50 { get; set; }
-
-    public double? Price100 { get; set; }
     public int StockQuantity { get; set; }
+    public int SoldQuantity { get; set; } = 0;
 
     public Guid CategoryId { get; set; }
 
@@ -31,5 +27,5 @@ public class Product
     [ValidateNever]
     public Category Category { get; set; }
 
-    public List<ProductImage>? ProductImages { get; set; } = new List<ProductImage>();
+    public List<string>? ImageUrls { get; set; } = new List<string>();
 }

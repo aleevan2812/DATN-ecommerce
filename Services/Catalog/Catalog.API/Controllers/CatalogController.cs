@@ -96,7 +96,7 @@ public class CatalogController : ApiController
     [HttpPost]
     [Route("CreateProduct")]
     [ProducesResponseType(typeof(ProductResponse), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<ProductResponse>> CreateProduct([FromBody] CreateProductCommand productCommand)
+    public async Task<ActionResult<ProductResponse>> CreateProduct([FromBody] CreateCategoryCommand productCommand)
     {
         var result = await _mediator.Send(productCommand);
         return Ok(result);

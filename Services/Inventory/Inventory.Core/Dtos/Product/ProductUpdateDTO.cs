@@ -22,6 +22,7 @@ public class ProductUpdateDTO
 
     public double? Price100 { get; set; }
     public int StockQuantity { get; set; }
+    public int SoldQuantity { get; set; }
 
     public Guid CategoryId { get; set; }
 
