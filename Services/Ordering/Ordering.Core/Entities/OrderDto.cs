@@ -14,7 +14,6 @@ public record OrderDto
     DateTime? LastModifiedDate,
 
     decimal? TotalPrice,
-    decimal? TotalDiscount,
     string? FullName,
     string? EmailAddress,
     string? PhoneNumber,
@@ -32,4 +31,4 @@ public record OrderDto
     IEnumerable<OrderItemDto>? Items
 );
 
-public record OrderItemDto(string Id, string? CreatedBy, DateTime? CreatedDate, string? LastModifiedBy, DateTime? LastModifiedDate, string? OrderId, string? ProductId, string? ProductName, string? ImageUrl, int Quantity, decimal Price);
+public record OrderItemDto(string Id, string? CreatedBy, string CouponCode, DateTime? CreatedDate, string? LastModifiedBy, DateTime? LastModifiedDate, string? OrderId, string? ProductId, string? ProductName, string? ImageUrl, int Quantity, decimal Price);

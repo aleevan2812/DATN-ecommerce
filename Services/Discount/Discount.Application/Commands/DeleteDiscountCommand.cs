@@ -4,10 +4,10 @@ namespace Discount.Application.Commands;
 
 public class DeleteDiscountCommand : IRequest<bool>
 {
-    public string ProductId { get; set; }
+    public string Id { get; set; }
 
-    public DeleteDiscountCommand(string productId)
+    public DeleteDiscountCommand(string id)
     {
-        ProductId = productId;
+        Id = id;
     }
 }

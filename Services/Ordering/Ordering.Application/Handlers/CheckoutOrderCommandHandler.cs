@@ -30,24 +30,22 @@ public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand,
         var itemIds = request?.Items.Select(u => u.ProductId).Distinct().ToList();
         //var items = request?.Items.se
 
-        decimal totalDiscount = 0;
-        foreach (var itemId in itemIds)
+        // calculate totalPrice
+        decimal totalPrice = 0;
+        foreach (var item in orderEntity.Items)
         {
-            var coupon = await _discountGrpcService.GetDiscount(itemId);
-            if (coupon != null && coupon.Quantity > 0)
+            var itemTotalPrice = item.Price * item.Quantity;
+            var coupon = await _discountGrpcService.GetDiscount(item.CouponCode);
+            decimal discount = 0;
+            if (coupon != null && coupon.ProductId == item.ProductId && coupon.Quantity > 0)
             {
-                totalDiscount += (decimal)coupon.Amount;
+                discount = coupon.Amount;
                 _ = _discountGrpcService.ReduceDiscount(coupon.Id);
             }
-        }
-        orderEntity.TotalDiscount = totalDiscount;
 
-        decimal totalPrice = 0;
-        foreach (var item in orderEntity?.Items)
-        {
-            totalPrice += item.Price * item.Quantity;
+            totalPrice = totalPrice + (itemTotalPrice > discount ? itemTotalPrice - discount : 0);
         }
-        orderEntity.TotalPrice = totalPrice > orderEntity.TotalDiscount ? totalPrice - orderEntity.TotalDiscount : 0;
+        orderEntity.TotalPrice = totalPrice;
 
         var generatedOrder = await _orderRepository.AddAsync(orderEntity);
         _logger.LogInformation(($"Order {generatedOrder} successfully created."));

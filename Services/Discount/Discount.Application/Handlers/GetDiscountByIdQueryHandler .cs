@@ -26,7 +26,7 @@ public class GetDiscountByIdQueryHandler : IRequestHandler<GetDiscountByIdQuery,
         //TODO: Exercise Follow Product Mapper kind of example
         var couponModel = new CouponModel
         {
-            Id = coupon.Id,
+            Id = coupon.Id.ToString(),
             Amount = coupon.Amount,
             Description = coupon.Description,
             ProductId = coupon.ProductId,

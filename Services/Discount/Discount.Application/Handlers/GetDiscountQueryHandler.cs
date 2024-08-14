@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Discount.Application.Handlers;
 
-public class GetDiscountQueryHandler : IRequestHandler<GetDiscountQuery, CouponModel>
+public class GetDiscountQueryHandler : IRequestHandler<GetDiscountByProductIdQuery, CouponModel>
 {
     private readonly IDiscountRepository _discountRepository;
 
@@ -15,7 +15,7 @@ public class GetDiscountQueryHandler : IRequestHandler<GetDiscountQuery, CouponM
         _discountRepository = discountRepository;
     }
 
-    public async Task<CouponModel> Handle(GetDiscountQuery request, CancellationToken cancellationToken)
+    public async Task<CouponModel> Handle(GetDiscountByProductIdQuery request, CancellationToken cancellationToken)
     {
         var coupon = await _discountRepository.GetDiscount(request.ProductId);
         if (coupon == null)
@@ -26,7 +26,7 @@ public class GetDiscountQueryHandler : IRequestHandler<GetDiscountQuery, CouponM
         //TODO: Exercise Follow Product Mapper kind of example
         var couponModel = new CouponModel
         {
-            Id = coupon.Id,
+            Id = coupon.Id.ToString(),
             Amount = coupon.Amount,
             Description = coupon.Description,
             ProductId = coupon.ProductId,

@@ -24,9 +24,9 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
 
     public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
     {
-        var query = new GetDiscountQuery(request.ProductId);
+        var query = new GetDiscountByIdQuery(request.Id);
         var result = await _mediator.Send(query);
-        _logger.LogInformation($"Discount is retrieved for the Product Id: {request.ProductId} and Amount : {result.Amount} and Quantity : {result.Quantity}");
+        _logger.LogInformation($"Discount is retrieved for the Id-CouponCode: {request.Id} for ProductId {result.ProductId} and Amount : {result.Amount} and Quantity : {result.Quantity}");
         return result;
     }
 
@@ -60,7 +60,7 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
 
     public override async Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
     {
-        var cmd = new DeleteDiscountCommand(request.ProductId);
+        var cmd = new DeleteDiscountCommand(request.Id);
         var deleted = await _mediator.Send(cmd);
         var response = new DeleteDiscountResponse
         {

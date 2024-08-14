@@ -30,7 +30,7 @@ public class ItemsBasketOrderingConsumer : IConsumer<ItemsBasketCheckoutEvent>
         foreach (var item in context.Message.Items)
         {
             // init Query
-            var query = new GetDiscountQuery(item.ProductId);
+            var query = new GetDiscountByProductIdQuery(item.ProductId);
             // get Coupon from Db
             var result = _mapper.Map<Coupon>(await _mediator.Send(query));
 

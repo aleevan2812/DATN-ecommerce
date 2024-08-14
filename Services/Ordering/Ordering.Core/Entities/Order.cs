@@ -7,7 +7,6 @@ public class Order : EntityBase
 {
     public string? UserName { get; set; }
     public decimal? TotalPrice { get; set; } = 0;
-    public decimal? TotalDiscount { get; set; } = 0;
     public string? FullName { get; set; }
     public string? EmailAddress { get; set; }
     public string? PhoneNumber { get; set; }
@@ -31,6 +30,8 @@ public class OrderItem : EntityBase
 
     [ForeignKey("OrderId")]
     public Order? Order { get; set; }
+
+    public string CouponCode { get; set; } = null;
 
     public string? ProductId { get; set; }
     public string? ProductName { get; set; }

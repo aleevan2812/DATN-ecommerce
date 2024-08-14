@@ -15,7 +15,7 @@ public class DeleteDiscountCommandHandler : IRequestHandler<DeleteDiscountComman
 
     public async Task<bool> Handle(DeleteDiscountCommand request, CancellationToken cancellationToken)
     {
-        var deleted = await _discountRepository.DeleteDiscount(request.ProductId);
+        var deleted = await _discountRepository.DeleteDiscount(request.Id);
         return deleted;
     }
 }

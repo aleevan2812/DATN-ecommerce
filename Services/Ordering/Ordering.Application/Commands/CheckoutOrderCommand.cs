@@ -16,6 +16,7 @@ public record CheckoutOrderCommand(
 ) : IRequest<string>;
 
 public record CheckoutOrderItem(
+     string? CouponCode,
     string ProductId,
     string ProductName,
     int Quantity,

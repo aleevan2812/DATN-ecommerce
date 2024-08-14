@@ -18,7 +18,7 @@ public class DiscountGrpcService
         _config = config;
     }
 
-    public async Task<CouponModel> GetDiscount(string productId)
+    public async Task<CouponModel> GetDiscount(string id)
     {
         _logger.LogInformation("Calling GRPC Service from Basket Client at GetDiscount .");
 
@@ -26,7 +26,7 @@ public class DiscountGrpcService
         //var channel = GrpcChannel.ForAddress((_config.GetSection("GrpcSettings:DiscountUrl").Value).ToString());
         //var client = new DiscountProtoService.DiscountProtoServiceClient(channel);
 
-        var discountRequest = new GetDiscountRequest { ProductId = productId };
+        var discountRequest = new GetDiscountRequest { Id = id };
         try
         {
             // c2
@@ -41,20 +41,20 @@ public class DiscountGrpcService
         }
     }
 
-    public async Task<Empty> ReduceDiscount(int id)
+    public Task<Empty> ReduceDiscount(string id)
     {
         _logger.LogInformation("Calling GRPC Service from Basket Client at ReduceDiscount .");
 
         var reduceRequest = new ReduceDiscountRequest { Id = id };
         try
         {
-            _ = _discountProtoServiceClient.ReduceDiscountAsync(reduceRequest);
-            return await Task.FromResult(new Empty());
+            _discountProtoServiceClient.ReduceDiscount(reduceRequest);
+            return Task.FromResult(new Empty());
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Could not call GRPC Server. This is call from Ordering Client at ReduceDiscount");
-            return await Task.FromResult(new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

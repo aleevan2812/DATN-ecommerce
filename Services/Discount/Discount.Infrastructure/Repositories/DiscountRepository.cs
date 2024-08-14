@@ -67,13 +67,20 @@ public class DiscountRepository : IDiscountRepository
         return true;
     }
 
-    public async Task<Coupon> GetDiscountById(int id)
+    public async Task<Coupon> GetDiscountById(string id)
     {
-        await using var connection = new NpgsqlConnection(_configuration.GetSection("DatabaseSettings:ConnectionString").Value);
-        var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
-            ("SELECT * FROM Coupon WHERE Id = @Id", new { Id = id });
-        if (coupon == null)
-            return new Coupon { ProductId = "-1", Amount = 0, Description = "No Discount Available" };
-        return coupon;
+        try
+        {
+            await using var connection = new NpgsqlConnection(_configuration.GetSection("DatabaseSettings:ConnectionString").Value);
+            var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>(
+                    "SELECT * FROM Coupon WHERE Id = @Id", new { Id = Guid.Parse(id) });
+            if (coupon == null)
+                return new Coupon { ProductId = Guid.Empty.ToString(), Amount = 0, Description = "No Discount Available" };
+            return coupon;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
     }
 }

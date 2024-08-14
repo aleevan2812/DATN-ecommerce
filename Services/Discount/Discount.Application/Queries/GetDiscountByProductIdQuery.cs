@@ -3,11 +3,11 @@ using MediatR;
 
 namespace Discount.Application.Queries;
 
-public class GetDiscountQuery : IRequest<CouponModel>
+public class GetDiscountByProductIdQuery : IRequest<CouponModel>
 {
     public string ProductId { get; set; }
 
-    public GetDiscountQuery(string productId)
+    public GetDiscountByProductIdQuery(string productId)
     {
         ProductId = productId;
     }

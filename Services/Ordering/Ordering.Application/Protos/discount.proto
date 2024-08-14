@@ -10,14 +10,15 @@ service DiscountProtoService {
   rpc UpdateDiscount(UpdateDiscountRequest) returns (CouponModel);
   rpc DeleteDiscount(DeleteDiscountRequest) returns (DeleteDiscountResponse);
   rpc ReduceDiscount(ReduceDiscountRequest) returns (google.protobuf.Empty);
+//  rpc ReduceDiscount(ReduceDiscountRequest) returns (ReduceDiscountRequest)
 }
 
 message GetDiscountRequest {
-  string productId = 1;
+  string id = 1;
 }
 
 message CouponModel {
-  int32 id = 1;
+  string id = 1;
   string productId = 2;
   string description = 3;
   int32 amount = 4;
@@ -32,7 +33,7 @@ message UpdateDiscountRequest {
 }
 
 message DeleteDiscountRequest {
-  string productId = 1;
+  string id = 1;
 }
 
 message DeleteDiscountResponse {
@@ -40,5 +41,9 @@ message DeleteDiscountResponse {
 }
 
 message ReduceDiscountRequest {
-	int32 id = 1;
+	string id = 1;
+}
+
+message ReduceDiscountResponse {
+  bool success = 1;
 }

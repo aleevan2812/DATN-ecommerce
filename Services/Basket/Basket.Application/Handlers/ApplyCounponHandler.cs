@@ -9,12 +9,12 @@ using MediatR;
 
 namespace Basket.Application.Handlers;
 
-public class CreateShoppingCartCommandHandler : IRequestHandler<CreateShoppingCartCommand, ShoppingCartResponse>
+public class ApplyCounponHandler : IRequestHandler<CreateShoppingCartCommand, ShoppingCartResponse>
 {
     private readonly IBasketRepository _basketRepository;
     private readonly DiscountGrpcService _discountGrpcService;
 
-    public CreateShoppingCartCommandHandler(IBasketRepository basketRepository, DiscountGrpcService discountGrpcService)
+    public ApplyCounponHandler(IBasketRepository basketRepository, DiscountGrpcService discountGrpcService)
     {
         _basketRepository = basketRepository;
         _discountGrpcService = discountGrpcService;
@@ -28,6 +28,19 @@ public class CreateShoppingCartCommandHandler : IRequestHandler<CreateShoppingCa
             Items = request.Items,
         });
         var shoppingCartResponse = BasketMapper.Mapper.Map<ShoppingCartResponse>(shoppingCart);
+
+        // calculate totalPrice
+        decimal totalPrice = 0;
+        foreach (var item in shoppingCartResponse.Items)
+        {
+            var itemTotalPrice = item.Price * item.Quantity;
+            var coupon = await _discountGrpcService.GetDiscount(item.CouponCode);
+            decimal discount = 0;
+            if (coupon != null && coupon.ProductId == item.ProductId && coupon.Quantity > 0)
+                discount = coupon.Amount;
+            totalPrice = totalPrice + (itemTotalPrice > discount ? itemTotalPrice - discount : 0);
+        }
+        shoppingCartResponse.TotalPrice = totalPrice;
 
         return shoppingCartResponse;
     }

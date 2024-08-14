@@ -3,6 +3,7 @@
 public class ShoppingCartItem
 {
     public int Quantity { get; set; }
+    public string CouponCode { get; set; } = null;
     public decimal Price { get; set; }
     public string ProductId { get; set; }
     public string ImageFile { get; set; }

@@ -45,6 +45,14 @@ public class BasketController : ApiController
         return Ok(basket);
     }
 
+    [HttpPost("ApplyCoupon")]
+    [ProducesResponseType(typeof(ShoppingCartResponse), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult<ShoppingCartResponse>> ApplyCoupon([FromBody] CreateShoppingCartCommand createShoppingCartCommand)
+    {
+        var basket = await _mediator.Send(createShoppingCartCommand);
+        return Ok(basket);
+    }
+
     [HttpDelete]
     [Route("[action]/{userName}", Name = "DeleteBasketByUserName")]
     [ProducesResponseType((int)HttpStatusCode.OK)]

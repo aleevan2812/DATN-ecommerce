@@ -5,9 +5,9 @@ namespace Discount.Application.Queries;
 
 public class GetDiscountByIdQuery : IRequest<CouponModel>
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
 
-    public GetDiscountByIdQuery(int id)
+    public GetDiscountByIdQuery(string id)
     {
         Id = id;
     }

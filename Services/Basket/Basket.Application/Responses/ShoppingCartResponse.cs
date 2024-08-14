@@ -3,7 +3,6 @@
 public class ShoppingCartResponse
 {
     public string UserName { get; set; }
-    public decimal TotalDiscount { get; set; } = 0;
 
     public List<ShoppingCartItemResponse> Items { get; set; }
 
@@ -18,17 +17,7 @@ public class ShoppingCartResponse
 
     public decimal TotalPrice
     {
-        get
-        {
-            decimal totalPrice = 0;
-            decimal totalDiscount = TotalDiscount;
-
-            foreach (var item in Items)
-            {
-                totalPrice += item.Price * item.Quantity;
-            }
-
-            return (totalPrice > totalDiscount ? totalPrice - totalDiscount : 0);
-        }
+        get;
+        set;
     }
 }

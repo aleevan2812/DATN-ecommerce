@@ -3,6 +3,7 @@
 public class ShoppingCartItemResponse
 {
     public int Quantity { get; set; }
+    public string CouponCode { get; set; }
     public string ImageFile { get; set; }
     public decimal Price { get; set; }
     public string ProductId { get; set; }
